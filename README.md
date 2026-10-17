@@ -234,6 +234,22 @@ Most "free LLM API" lists give you a name and a link. This one gives you everyth
 
   ---
 
+  ### [IteraCompute](https://platform.iteracompute.com/api-keys) 🇨🇳
+
+  > Self-hosted Qwen3.8-27B with 30M free tokens per month, no card or top-up required. Email verification or Google sign-in is required.
+
+  | Detail | Info |
+  |---|---|
+  | **Free Models** | `qwen/qwen3.8-27b` — 128K total context, 8,192-token maximum output |
+  | **Rate Limits** | 160,000 TPM · 30M tokens/month per account · no daily quota ([source](https://iteracompute.com/free/)) |
+  | **OpenAI Compat** | ✅ Yes — `https://api.iteracompute.com/v1` |
+  | **SDKs** | Python (via `openai`), JS/TS (via `openai`), REST |
+  | **Speed Tier** | 🟡 Medium — default classification; throughput not independently benchmarked, shared capacity may queue |
+
+  > Input and output, including reasoning, share the monthly allowance across account keys. Reset: first of each month at 00:00 UTC; no rollover or automatic paid overage. Only this Qwen model is included. No SLA. Verified 2026-10-17 against the [free-tier policy](https://iteracompute.com/free/) and [live catalog](https://api.iteracompute.com/v1/models).
+
+  ---
+
   ### [Kluster AI](https://platform.kluster.ai/apikeys) 🇺🇸
 
   > Newer inference provider with access to flagship open-weight models. Rate limits not publicly documented.
@@ -352,6 +368,7 @@ Most "free LLM API" lists give you a name and a link. This one gives you everyth
   | GitHub Models | GPT-4o | 10–15 | 50–150 | ✅ | 🟡 |
   | NVIDIA NIM | Qwen3 235B | 40 | — | ✅ | 🟡 |
   | Hugging Face | Llama 3.3 70B | — | credit-based | ✅ | 🔴 |
+  | IteraCompute | Qwen3.8-27B | Undocumented (160K TPM) | No daily cap; 30M tokens/month | ✅ | 🟡 |
   | Cloudflare Workers AI | Llama 3.3 70B | — | 10K neurons | ⚠️ | 🟡 |
   | Pollinations AI | openai-large + image/video/audio | — | hourly reset | ✅ | 🟡 |
   | UnoRouter | DeepSeek V4 Pro (free) | 1/model | — | ✅ | 🟡 |
@@ -386,6 +403,7 @@ print(response.choices[0].message.content)
 
 ```python
 PROVIDERS = {
+    "iteracompute": ("https://api.iteracompute.com/v1",                   "qwen/qwen3.8-27b"),
     "groq":        ("https://api.groq.com/openai/v1",                     "llama-3.3-70b-versatile"),
     "anyapi":      ("https://api.anyapi.ai/v1",                           "meta-llama/llama-3.3-70b-instruct"),
     "cerebras":    ("https://api.cerebras.ai/v1",                         "llama-3.3-70b"),
